@@ -8,4 +8,7 @@ Low level components and interfaces for use with [LeaderAnalytics.Fred.FredClien
 
 ----
 
+
 [Read the documentation here](https://vyntix.com/docs/fred-client/latest/intro.html).
+
+---

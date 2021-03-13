@@ -23,8 +23,13 @@
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <RootNamespace>LeaderAnalytics.Vyntix.Fred.Domain</RootNamespace>
+    <AssemblyName>LeaderAnalytics.Vyntix.Fred.Domain</AssemblyName>
+  </PropertyGroup>
+  
   <ItemGroup>
-    <PackageReference Include="LeaderAnalytics.Vyntix.Fred.Model" Version="1.0.5-beta.1" />
+    <PackageReference Include="LeaderAnalytics.Vyntix.Fred.Model" Version="1.0.7-beta.1" />
   </ItemGroup>
 
   <ItemGroup>
