@@ -56,6 +56,6 @@ namespace LeaderAnalytics.Vyntix.Fred.Domain
         Task<List<SeriesTag>> GetSeriesTags(string symbol);
         Task<List<Source>> GetSources();
         Task<List<Source>> GetSources(DateTime RTStart, DateTime RTEnd);
-        Task<List<Vintage>> GetVintgeDates(string symbol, DateTime? RTStart);
+        Task<List<Vintage>> GetVintageDates(string symbol, DateTime? RTStart);
     }
 }
