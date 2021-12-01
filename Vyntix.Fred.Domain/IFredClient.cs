@@ -26,36 +26,31 @@ By using this software you agree to be bound by the FRED® API Terms of Use foun
 
 */
 
-using LeaderAnalytics.Vyntix.Fred.Model;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+global using LeaderAnalytics.Vyntix.Fred.Model;
+namespace LeaderAnalytics.Vyntix.Fred.Domain;
 
-namespace LeaderAnalytics.Vyntix.Fred.Domain
+public interface IFredClient
 {
-    public interface IFredClient 
-    {
-        IDownloadJobStatistics JobStatistics { get; set; }
-        int RemainingLimitRequests { get; }
+    IDownloadJobStatistics JobStatistics { get; set; }
+    int RemainingLimitRequests { get; }
 
-        Task<List<Category>> GetCategoriesForSeries(string symbol);
-        Task<Category> GetCategory(string categoryID);
-        Task<List<Category>> GetCategoryChildren(string parentID);
-        Task<List<CategoryTag>> GetCategoryTags(string categoryID);
-        Task<List<Observation>> GetObservations(string symbol);
-        Task<List<Observation>> GetObservations(string symbol, DateTime RTStart, DateTime RTEnd);
-        Task<List<Observation>> GetObservations(string symbol, IList<DateTime> vintageDates);
-        Task<List<Observation>> GetObservationUpdates(string symbol, DateTime? ObsStart, DateTime? ObsEnd);
-        Task<List<RelatedCategory>> GetRelatedCategories(string parentID);
-        Task<List<ReleaseDate>> GetReleaseDates(string nativeReleaseID, int offset);
-        Task<List<Release>> GetReleasesForSource(string nativeSourceID);
-        Task<List<Release>> GetReleasesForSource(string nativeSourceID, DateTime RTStart, DateTime RTEnd);
-        Task<Series> GetSeries(string symbol);
-        Task<List<SeriesCategory>> GetSeriesForCategory(string categoryID, bool includeDiscontinued);
-        Task<List<Series>> GetSeriesForRelease(string releaseNativeID);
-        Task<List<SeriesTag>> GetSeriesTags(string symbol);
-        Task<List<Source>> GetSources();
-        Task<List<Source>> GetSources(DateTime RTStart, DateTime RTEnd);
-        Task<List<Vintage>> GetVintageDates(string symbol, DateTime? RTStart);
-    }
+    Task<List<Category>> GetCategoriesForSeries(string symbol);
+    Task<Category> GetCategory(string categoryID);
+    Task<List<Category>> GetCategoryChildren(string parentID);
+    Task<List<CategoryTag>> GetCategoryTags(string categoryID);
+    Task<List<Observation>> GetObservations(string symbol);
+    Task<List<Observation>> GetObservations(string symbol, DateTime RTStart, DateTime RTEnd);
+    Task<List<Observation>> GetObservations(string symbol, IList<DateTime> vintageDates);
+    Task<List<Observation>> GetObservationUpdates(string symbol, DateTime? ObsStart, DateTime? ObsEnd);
+    Task<List<RelatedCategory>> GetRelatedCategories(string parentID);
+    Task<List<ReleaseDate>> GetReleaseDates(string nativeReleaseID, int offset);
+    Task<List<Release>> GetReleasesForSource(string nativeSourceID);
+    Task<List<Release>> GetReleasesForSource(string nativeSourceID, DateTime RTStart, DateTime RTEnd);
+    Task<Series> GetSeries(string symbol);
+    Task<List<SeriesCategory>> GetSeriesForCategory(string categoryID, bool includeDiscontinued);
+    Task<List<Series>> GetSeriesForRelease(string releaseNativeID);
+    Task<List<SeriesTag>> GetSeriesTags(string symbol);
+    Task<List<Source>> GetSources();
+    Task<List<Source>> GetSources(DateTime RTStart, DateTime RTEnd);
+    Task<List<Vintage>> GetVintageDates(string symbol, DateTime? RTStart);
 }
