@@ -1,18 +1,14 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
+﻿namespace LeaderAnalytics.Vyntix.Fred.Domain;
 
-namespace LeaderAnalytics.Vyntix.Fred.Domain
+public interface IDownloadStatistic
 {
-    public interface IDownloadStatistic
-    {
-        int FailCount { get; }
-        int InsertCount { get; }
-        int TotalCount { get; }
-        int UpdateCount { get; }
+    int FailCount { get; }
+    int InsertCount { get; }
+    int TotalCount { get; }
+    int UpdateCount { get; }
 
-        void IncrementFails(int value);
-        void IncrementInserts(int value);
-        void IncrementUpdates(int value);
-        void Reset();
-    }
+    void IncrementFails(int value);
+    void IncrementInserts(int value);
+    void IncrementUpdates(int value);
+    void Reset();
 }

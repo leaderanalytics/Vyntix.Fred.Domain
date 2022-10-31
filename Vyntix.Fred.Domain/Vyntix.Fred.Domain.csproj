@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
+	  <ImplicitUsings>enable</ImplicitUsings>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
@@ -27,13 +28,13 @@
     <RootNamespace>LeaderAnalytics.Vyntix.Fred.Domain</RootNamespace>
     <AssemblyName>LeaderAnalytics.Vyntix.Fred.Domain</AssemblyName>
   </PropertyGroup>
-  
-  <ItemGroup>
-    <PackageReference Include="LeaderAnalytics.Vyntix.Fred.Model" Version="1.0.7-beta.1" />
-  </ItemGroup>
 
   <ItemGroup>
     <None Include="..\VyntixLogo.png" Pack="true" PackagePath="\" />
     <None Include="..\LICENSE.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LeaderAnalytics.Vyntix.Fred.Model" Version="1.0.17-beta.3" />
   </ItemGroup>
 </Project>
