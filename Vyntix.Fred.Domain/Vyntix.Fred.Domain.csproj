@@ -35,6 +35,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="LeaderAnalytics.Vyntix.Fred.Model" Version="1.0.15-beta.2" />
+    <PackageReference Include="LeaderAnalytics.Vyntix.Fred.Model" Version="1.0.17-beta.3" />
   </ItemGroup>
 </Project>
