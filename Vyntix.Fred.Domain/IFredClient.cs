@@ -38,10 +38,48 @@ public interface IFredClient
     Task<Category> GetCategory(string categoryID);
     Task<List<Category>> GetCategoryChildren(string parentID);
     Task<List<CategoryTag>> GetCategoryTags(string categoryID);
-    Task<List<Observation>> GetObservations(string symbol);
-    Task<List<Observation>> GetObservations(string symbol, DateTime RTStart, DateTime RTEnd);
-    Task<List<Observation>> GetObservations(string symbol, IList<DateTime> vintageDates);
-    Task<List<Observation>> GetObservationUpdates(string symbol, DateTime? ObsStart, DateTime? ObsEnd);
+    
+    /// <summary>
+    /// Get observations using the most recent vintage
+    /// </summary>
+    /// <param name="symbol">A valid FRED series identifier.</param>
+    /// <param name="density">Dense repeats unchanged values across vintages, Sparse includes new and revised values only.  Default is Dense.</param>
+    /// <returns>A List of Observations</returns>
+    Task<List<Observation>> GetObservations(string symbol, DataDensity density = DataDensity.Dense);
+
+    /// <summary>
+    /// Get observations for vintages that were valid between the user-defined real-time start and real-time end periods of interest.
+    /// </summary>
+    /// <param name="symbol">A valid FRED series identifier.</param>
+    /// <param name="RTStart">Start date of a user-defined real-time period of interest.</param>
+    /// <param name="RTEnd">End date of a user-defined real-time period of interest.</param>
+    /// <param name="density">Dense repeats unchanged values across vintages, Sparse includes new and revised values only.  Default is Dense.</param>
+    /// <returns>A List of Observations</returns>
+    Task<List<Observation>> GetObservations(string symbol, DateTime? RTStart, DateTime? RTEnd, DataDensity density = DataDensity.Dense);
+
+    /// <summary>
+    /// Get observations for the specified observation periods that were valid between the user-defined real-time periods of interest.
+    /// To find user-defined real-time periods of interest that correspond to vintage dates, first call GetVintageDates than call this method
+    /// passing in the desired vintage dates.
+    /// </summary>
+    /// <param name="symbol">A valid FRED series identifier.</param>
+    /// <param name="obsStart">Date of the starting observation period.</param>
+    /// <param name="obsEnd">Date of the ending observation period.</param>
+    /// <param name="RTStart">Start date of a user-defined real-time period of interest.</param>
+    /// <param name="RTEnd">End date of a user-defined real-time period of interest.</param>
+    /// <param name="density">Dense repeats unchanged values across vintages, Sparse includes new and revised values only.  Default is Dense.</param>
+    /// <returns>A List of Observations</returns>
+    Task<List<Observation>> GetObservations(string symbol, DateTime? obsStart, DateTime? obsEnd, DateTime? RTStart, DateTime? RTEnd, DataDensity density = DataDensity.Dense);
+
+    /// <summary>
+    /// Get observations for the supplied list of valid FRED defined vintage dates.
+    /// </summary>
+    /// <param name="symbol">A valid FRED series identifier.</param>
+    /// <param name="vintageDates">A List of valid FRED defined vintage dates</param>
+    /// <param name="density">Dense repeats unchanged values across vintages, Sparse includes new and revised values only.  Default is Dense.</param>
+    /// <returns>A List of Observations</returns>
+    Task<List<Observation>> GetObservations(string symbol, IList<DateTime> vintageDates, DataDensity density = DataDensity.Dense);
+    
     Task<List<RelatedCategory>> GetRelatedCategories(string parentID);
     Task<List<Release>> GetAllReleases();
     Task<List<ReleaseDate>> GetAllReleaseDates(DateTime? realtimeStart, bool includeReleaseDatesWithNoData);
@@ -59,5 +97,6 @@ public interface IFredClient
     Task<Source> GetSource(string sourceID);
     Task<List<Source>> GetSources();
     Task<List<Source>> GetSources(DateTime RTStart, DateTime RTEnd);
-    Task<List<Vintage>> GetVintageDates(string symbol, DateTime? RTStart);
+    Task<List<Vintage>> GetVintageDates(string symbol);
+    Task<List<Vintage>> GetVintageDates(string symbol, DateTime? RTStart, DateTime? RTEnd);
 }
