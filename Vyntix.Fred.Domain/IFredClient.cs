@@ -76,6 +76,15 @@ public interface IFredClient
     /// </summary>
     /// <param name="symbol">A valid FRED series identifier.</param>
     /// <param name="vintageDates">A List of valid FRED defined vintage dates</param>
+    /// <param name="density">Dense repeats unchanged values across vintages, Sparse includes new and revised values only.  Default is Dense.</param>
+    /// <returns>A List of Observations</returns>
+    Task<List<Observation>> GetObservations(string symbol, IList<DateTime> vintageDates, DataDensity density);
+
+    /// <summary>
+    /// Get observations for the supplied list of valid FRED defined vintage dates.
+    /// </summary>
+    /// <param name="symbol">A valid FRED series identifier.</param>
+    /// <param name="vintageDates">A List of valid FRED defined vintage dates</param>
     /// <param name="obsStart">Date of the starting observation period.</param>
     /// <param name="obsEnd">Date of the ending observation period.</param>
     /// <param name="density">Dense repeats unchanged values across vintages, Sparse includes new and revised values only.  Default is Dense.</param>
