@@ -38,12 +38,19 @@ public interface IFredClient
     Task<Category> GetCategory(string categoryID);
     Task<List<Category>> GetCategoryChildren(string parentID);
     Task<List<CategoryTag>> GetCategoryTags(string categoryID);
-    
+
     /// <summary>
     /// Get observations using the most recent vintage
     /// </summary>
     /// <param name="symbol">A valid FRED series identifier.</param>
-    /// <param name="density">Dense repeats unchanged values across vintages, Sparse includes new and revised values only.  Default is Dense.</param>
+    /// <returns>A List of Observations</returns>
+    Task<List<Observation>> GetObservations(string symbol);
+
+    /// <summary>
+    /// Get observations using the most recent vintage
+    /// </summary>
+    /// <param name="symbol">A valid FRED series identifier.</param>
+    /// <param name="density">Dense repeats unchanged values across vintages, Sparse includes new and revised values only.</param>
     /// <returns>A List of Observations</returns>
     Task<List<Observation>> GetObservations(string symbol, DataDensity density);
 
@@ -53,7 +60,7 @@ public interface IFredClient
     /// <param name="symbol">A valid FRED series identifier.</param>
     /// <param name="RTStart">Start date of a user-defined real-time period of interest.</param>
     /// <param name="RTEnd">End date of a user-defined real-time period of interest.</param>
-    /// <param name="density">Dense repeats unchanged values across vintages, Sparse includes new and revised values only.  Default is Dense.</param>
+    /// <param name="density">Dense repeats unchanged values across vintages, Sparse includes new and revised values only.</param>
     /// <returns>A List of Observations</returns>
     Task<List<Observation>> GetObservations(string symbol, DateTime? RTStart, DateTime? RTEnd, DataDensity density);
 
@@ -67,7 +74,7 @@ public interface IFredClient
     /// <param name="RTEnd">End date of a user-defined real-time period of interest.</param>
     /// <param name="obsStart">Date of the starting observation period.</param>
     /// <param name="obsEnd">Date of the ending observation period.</param>
-    /// <param name="density">Dense repeats unchanged values across vintages, Sparse includes new and revised values only.  Default is Dense.</param>
+    /// <param name="density">Dense repeats unchanged values across vintages, Sparse includes new and revised values only.</param>
     /// <returns>A List of Observations</returns>
     Task<List<Observation>> GetObservations(string symbol, DateTime? RTStart, DateTime? RTEnd, DateTime? obsStart, DateTime? obsEnd, DataDensity density);
 
@@ -76,7 +83,7 @@ public interface IFredClient
     /// </summary>
     /// <param name="symbol">A valid FRED series identifier.</param>
     /// <param name="vintageDates">A List of valid FRED defined vintage dates</param>
-    /// <param name="density">Dense repeats unchanged values across vintages, Sparse includes new and revised values only.  Default is Dense.</param>
+    /// <param name="density">Dense repeats unchanged values across vintages, Sparse includes new and revised values only.</param>
     /// <returns>A List of Observations</returns>
     Task<List<Observation>> GetObservations(string symbol, IList<DateTime> vintageDates, DataDensity density);
 
@@ -87,7 +94,7 @@ public interface IFredClient
     /// <param name="vintageDates">A List of valid FRED defined vintage dates</param>
     /// <param name="obsStart">Date of the starting observation period.</param>
     /// <param name="obsEnd">Date of the ending observation period.</param>
-    /// <param name="density">Dense repeats unchanged values across vintages, Sparse includes new and revised values only.  Default is Dense.</param>
+    /// <param name="density">Dense repeats unchanged values across vintages, Sparse includes new and revised values only.</param>
     /// <returns>A List of Observations</returns>
     Task<List<Observation>> GetObservations(string symbol, IList<DateTime> vintageDates, DateTime? obsStart, DateTime? obsEnd, DataDensity density);
     
