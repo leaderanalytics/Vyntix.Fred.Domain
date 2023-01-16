@@ -115,6 +115,6 @@ public interface IFredClient
     Task<Source> GetSource(string sourceID);
     Task<List<Source>> GetSources();
     Task<List<Source>> GetSources(DateTime RTStart, DateTime RTEnd);
-    Task<List<Vintage>> GetVintages(string symbol);
-    Task<List<Vintage>> GetVintages(string symbol, DateTime? RTStart, DateTime? RTEnd);
+    Task<List<Vintage>> GetVintages(string symbol, DateTime? RTStart = null, DateTime? RTEnd = null);
+    Task<List<DateTime>> GetVintageDates(string symbol, DateTime? RTStart = null, DateTime? RTEnd = null);
 }
