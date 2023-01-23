@@ -68,6 +68,18 @@ public interface IFredClient
     Task<List<Observation>> GetObservations(string symbol, DateTime obsPeriod, DateTime? RTStart, DateTime? RTEnd, DataDensity density);
 
     /// <summary>
+    /// Get observations for the specified observation periods that were valid between the user-defined real-time periods of interest.
+    /// To find user-defined real-time periods of interest that correspond to vintage dates, first call GetVintageDates than call this method
+    /// passing in the desired vintage dates.
+    /// </summary>
+    /// <param name="symbol">A valid FRED series identifier.</param>
+    /// <param name="obsStart">Start date of the observation period.</param>
+    /// <param name="obsEnd">End date of the observation period.</param>
+    /// <param name="density">Dense repeats unchanged values across vintages, Sparse includes new and revised values only.</param>
+    /// <returns>A List of Observations</returns>
+    Task<List<Observation>> GetObservations(string symbol, DateTime? obsStart, DateTime? obsEnd, DataDensity density);
+
+    /// <summary>
     /// Get observations for the supplied list of valid FRED defined vintage dates.
     /// </summary>
     /// <param name="symbol">A valid FRED series identifier.</param>
