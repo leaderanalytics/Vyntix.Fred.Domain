@@ -25,7 +25,7 @@ This software uses the FRED® API but is not endorsed or certified by the Federa
 By using this software you agree to be bound by the FRED® API Terms of Use found here: https://fred.stlouisfed.org/legal/.
 
 */
-global using LeaderAnalytics.FF.Vintages.Domain;
+
 global using LeaderAnalytics.Vyntix.Fred.Model;
 namespace LeaderAnalytics.Vyntix.Fred.Domain;
 
