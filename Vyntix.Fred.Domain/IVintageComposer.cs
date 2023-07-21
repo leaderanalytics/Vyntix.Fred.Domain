@@ -7,19 +7,19 @@ public interface IVintageComposer
     /// </summary>
     /// <param name="sparse"></param>
     /// <returns></returns>
-    List<IObservation> MakeDense(List<IObservation> sparse);
+    List<IFredObservation> MakeDense(List<IFredObservation> sparse);
 
     /// <summary>
     /// Populate observations where the value is equal to the value of the prior vintage for the same observation date.
     /// </summary>
     /// <param name="sparse"></param>
     /// <returns></returns>
-    List<IVintage> MakeDense(List<IVintage> sparseVintages);
+    List<IFredVintage> MakeDense(List<IFredVintage> sparseVintages);
 
     /// <summary>
     /// Remove observations where the value is equal to the value of the prior vintage for the same observation date.
     /// </summary>
     /// <param name="dense"></param>
     /// <returns></returns>
-    List<IObservation> MakeSparse(List<IObservation> dense);
+    List<IFredObservation> MakeSparse(List<IFredObservation> dense);
 }
