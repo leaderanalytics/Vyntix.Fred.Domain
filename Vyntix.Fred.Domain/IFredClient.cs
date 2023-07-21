@@ -37,7 +37,7 @@ public interface IFredClient
     Task<List<FredCategory>> GetCategoriesForSeries(string symbol);
     Task<FredCategory> GetCategory(string categoryID);
     Task<List<FredCategory>> GetCategoryChildren(string parentID);
-    Task<List<CategoryTag>> GetCategoryTags(string categoryID);
+    Task<List<FredCategoryTag>> GetCategoryTags(string categoryID);
 
     /// <summary>
     /// Get observations using the most recent vintage
@@ -99,7 +99,7 @@ public interface IFredClient
     /// <returns>A List of Observations</returns>
     Task<List<FredObservation>> GetObservations(string symbol, IList<DateTime> vintageDates, DateTime? obsStart, DateTime? obsEnd, DataDensity density);
     
-    Task<List<RelatedCategory>> GetRelatedCategories(string parentID);
+    Task<List<FredRelatedCategory>> GetRelatedCategories(string parentID);
     Task<List<FredRelease>> GetAllReleases();
     Task<List<FredReleaseDate>> GetAllReleaseDates(DateTime? realtimeStart, bool includeReleaseDatesWithNoData);
     Task<FredRelease> GetRelease(string nativeID);
@@ -112,7 +112,7 @@ public interface IFredClient
     Task<List<FredRelease>> GetReleasesForSource(string nativeSourceID, DateTime RTStart, DateTime RTEnd);
     Task<FredSeries> GetSeries(string symbol);
     Task<List<FredSeries>> GetSeriesForCategory(string categoryID, bool includeDiscontinued);
-    Task<List<SeriesTag>> GetSeriesTags(string symbol);
+    Task<List<FredSeriesTag>> GetSeriesTags(string symbol);
     Task<FredSource> GetSource(string sourceID);
     Task<List<FredSource>> GetSources();
     Task<List<FredSource>> GetSources(DateTime RTStart, DateTime RTEnd);
