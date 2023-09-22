@@ -26,7 +26,7 @@ By using this software you agree to be bound by the FRED® API Terms of Use foun
 
 */
 
-global using LeaderAnalytics.Vyntix.Fred.Model;
+
 namespace LeaderAnalytics.Vyntix.Fred.Domain;
 
 public interface IFredClient
