@@ -11,7 +11,7 @@ public interface IReleasesService
     Task<RowOpResult> DownloadReleaseSources(string releaseID);
     Task<RowOpResult> DownloadSource(string sourceID);
     Task<RowOpResult> DownloadSourceReleases(string sourceID);
-    Task<RowOpResult> SaveRelease(Release release, bool saveChanges = true);
-    Task<RowOpResult> SaveReleaseDate(ReleaseDate releaseDate, bool saveChanges = true);
-    Task<RowOpResult> SaveSource(Source source, bool saveChanges = true);
+    Task<RowOpResult> SaveRelease(FredRelease release, bool saveChanges = true);
+    Task<RowOpResult> SaveReleaseDate(FredReleaseDate releaseDate, bool saveChanges = true);
+    Task<RowOpResult> SaveSource(FredSource source, bool saveChanges = true);
 }
