@@ -1,4 +1,4 @@
-﻿namespace LeaderAnalytics.Vyntix.Fred.Domain;
+﻿namespace LeaderAnalytics.Vyntix.Fred.Domain.Downloader;
 
 public interface IObservationsService
 {

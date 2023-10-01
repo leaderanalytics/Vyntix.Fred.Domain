@@ -1,9 +1,9 @@
-﻿namespace LeaderAnalytics.Vyntix.Fred.Domain;
+﻿namespace LeaderAnalytics.Vyntix.Fred.Domain.Downloader;
 
 public interface ISeriesService
 {
-    Task<List<RowOpResult>> DownloadSeries(string[] symbols, string? releaseID = null);
-    Task<RowOpResult> DownloadSeries(string symbol, string? releaseID = null);
+    Task<List<RowOpResult>> DownloadSeries(string[] symbols, string releaseID = null);
+    Task<RowOpResult> DownloadSeries(string symbol, string releaseID = null);
     Task<RowOpResult> DownloadCategoriesForSeries(string symbol);
     Task<RowOpResult> DownloadSeriesRelease(string symbol);
     Task<RowOpResult> DownloadSeriesTags(string symbol);

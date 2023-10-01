@@ -1,6 +1,6 @@
-﻿namespace LeaderAnalytics.Vyntix.Fred.Domain;
+﻿namespace LeaderAnalytics.Vyntix.Fred.Domain.Downloader;
 
-public interface IObserverAPI_Manifest
+public interface IAPI_Manifest
 {
     IObservationsService ObservationsService { get; }
     IReleasesService ReleasesService { get; }
