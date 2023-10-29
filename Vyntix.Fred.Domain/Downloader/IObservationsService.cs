@@ -6,4 +6,5 @@ public interface IObservationsService
     Task<List<RowOpResult>> DownloadObservations(string[] symbols);
     Task<RowOpResult> DeleteObservationsForSymbol(string symbol);
     Task<RowOpResult<List<FredObservation>>> GetLocalObservations(string[] symbols);
+    Task<RowOpResult<SeriesStatistics>> GetSeriesStatistics(string symbol);
 }
