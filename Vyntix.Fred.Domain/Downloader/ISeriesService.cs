@@ -12,6 +12,7 @@ public interface ISeriesService
     Task<RowOpResult> SaveSeries(FredSeries series, bool saveChanges = true);
     Task<RowOpResult> SaveSeriesCategory(FredSeriesCategory seriesCategory, bool saveChanges = true);
     Task<RowOpResult<List<FredSeries>>> GetLocalSeries(int skip, int take, string searchTitle);
+    Task<RowOpResult<FredSeries>> GetLocalSeries(string symbol);
     Task<int> GetSeriesCount();
     Task<RowOpResult> DeleteSeriesCategoriesForSymbol(string symbol);
     Task<RowOpResult> DeleteSeries(string symbol);
