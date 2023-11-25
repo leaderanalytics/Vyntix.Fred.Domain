@@ -99,7 +99,7 @@ public interface IFredClient
     /// <returns>A List of Observations</returns>
     Task<APIResult<List<FredObservation>>> GetObservations(string symbol, IList<DateTime> vintageDates, DateTime? obsStart, DateTime? obsEnd, DataDensity density);
 
-    Task<List<FredObservation>> GetNonVintageObservations(string symbol, DateTime? obsStart, DateTime? obsEnd);
+    Task<List<FredObservation>> GetNonVintageObservations(string symbol, DateTime? obsStart = null, DateTime? obsEnd = null);
 
     Task<List<FredRelatedCategory>> GetRelatedCategories(string parentID);
     Task<List<FredRelease>> GetAllReleases();
