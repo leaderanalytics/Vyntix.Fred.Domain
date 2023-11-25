@@ -44,7 +44,7 @@ public interface IFredClient
     /// </summary>
     /// <param name="symbol">A valid FRED series identifier.</param>
     /// <returns>A List of Observations</returns>
-    Task<List<FredObservation>> GetObservations(string symbol);
+    Task<APIResult<List<FredObservation>>> GetObservations(string symbol);
 
     /// <summary>
     /// Get observations using the most recent vintage
@@ -52,7 +52,7 @@ public interface IFredClient
     /// <param name="symbol">A valid FRED series identifier.</param>
     /// <param name="density">Dense repeats unchanged values across vintages, Sparse includes new and revised values only.</param>
     /// <returns>A List of Observations</returns>
-    Task<List<FredObservation>> GetObservations(string symbol, DataDensity density);
+    Task<APIResult<List<FredObservation>>> GetObservations(string symbol, DataDensity density);
 
     /// <summary>
     /// Get observations for the specified observation periods that were valid between the user-defined real-time periods of interest.
@@ -65,7 +65,7 @@ public interface IFredClient
     /// <param name="obsPeriod">Date of the observation period.</param>
     /// <param name="density">Dense repeats unchanged values across vintages, Sparse includes new and revised values only.</param>
     /// <returns>A List of Observations</returns>
-    Task<List<FredObservation>> GetObservations(string symbol, DateTime obsPeriod, DateTime? RTStart, DateTime? RTEnd, DataDensity density);
+    Task<APIResult<List<FredObservation>>> GetObservations(string symbol, DateTime obsPeriod, DateTime? RTStart, DateTime? RTEnd, DataDensity density);
 
     /// <summary>
     /// Get observations for the specified observation periods that were valid between the user-defined real-time periods of interest.
@@ -77,7 +77,7 @@ public interface IFredClient
     /// <param name="obsEnd">End date of the observation period.</param>
     /// <param name="density">Dense repeats unchanged values across vintages, Sparse includes new and revised values only.</param>
     /// <returns>A List of Observations</returns>
-    Task<List<FredObservation>> GetObservations(string symbol, DateTime? obsStart, DateTime? obsEnd, DataDensity density);
+    Task<APIResult<List<FredObservation>>> GetObservations(string symbol, DateTime? obsStart, DateTime? obsEnd, DataDensity density);
 
     /// <summary>
     /// Get observations for the supplied list of valid FRED defined vintage dates.
@@ -86,7 +86,7 @@ public interface IFredClient
     /// <param name="vintageDates">A List of valid FRED defined vintage dates</param>
     /// <param name="density">Dense repeats unchanged values across vintages, Sparse includes new and revised values only.</param>
     /// <returns>A List of Observations</returns>
-    Task<List<FredObservation>> GetObservations(string symbol, IList<DateTime> vintageDates, DataDensity density);
+    Task<APIResult<List<FredObservation>>> GetObservations(string symbol, IList<DateTime> vintageDates, DataDensity density);
 
     /// <summary>
     /// Get observations for the supplied list of valid FRED defined vintage dates.
@@ -97,8 +97,10 @@ public interface IFredClient
     /// <param name="obsEnd">Date of the ending observation period.</param>
     /// <param name="density">Dense repeats unchanged values across vintages, Sparse includes new and revised values only.</param>
     /// <returns>A List of Observations</returns>
-    Task<List<FredObservation>> GetObservations(string symbol, IList<DateTime> vintageDates, DateTime? obsStart, DateTime? obsEnd, DataDensity density);
-    
+    Task<APIResult<List<FredObservation>>> GetObservations(string symbol, IList<DateTime> vintageDates, DateTime? obsStart, DateTime? obsEnd, DataDensity density);
+
+    Task<List<FredObservation>> GetNonVintageObservations(string symbol, DateTime? obsStart, DateTime? obsEnd);
+
     Task<List<FredRelatedCategory>> GetRelatedCategories(string parentID);
     Task<List<FredRelease>> GetAllReleases();
     Task<List<FredReleaseDate>> GetAllReleaseDates(DateTime? realtimeStart, bool includeReleaseDatesWithNoData);
@@ -116,6 +118,6 @@ public interface IFredClient
     Task<FredSource> GetSource(string sourceID);
     Task<List<FredSource>> GetSources();
     Task<List<FredSource>> GetSources(DateTime RTStart, DateTime RTEnd);
-    Task<RowOpResult<List<FredVintage>>> GetVintages(string symbol, DateTime? RTStart = null, DateTime? RTEnd = null);
-    Task<RowOpResult<List<DateTime>>> GetVintageDates(string symbol, DateTime? RTStart = null, DateTime? RTEnd = null);
+    Task<APIResult<List<FredVintage>>> GetVintages(string symbol, DateTime? RTStart = null, DateTime? RTEnd = null);
+    Task<APIResult<List<DateTime>>> GetVintageDates(string symbol, DateTime? RTStart = null, DateTime? RTEnd = null);
 }
