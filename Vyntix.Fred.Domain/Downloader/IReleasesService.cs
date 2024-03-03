@@ -8,6 +8,7 @@ public interface IReleasesService
     Task<RowOpResult> DownloadRelease(string releaseID);
     Task<RowOpResult> DownloadReleaseDates(string releaseID);
     Task<RowOpResult> DownloadReleaseSeries(string releaseID);
+    Task<RowOpResult> DownloadReleaseForSeries(string symbol, bool saveChanges = true);
     Task<RowOpResult> DownloadReleaseSources(string releaseID);
     Task<RowOpResult> DownloadSource(string sourceID);
     Task<RowOpResult> DownloadSourceReleases(string sourceID);
