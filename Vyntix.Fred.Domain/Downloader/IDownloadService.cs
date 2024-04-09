@@ -2,5 +2,5 @@
 
 public interface IDownloadService
 {
-    Task<APIResult> Download(FredDownloadArgs args);
+    Task<APIResult> Download(FredDownloadArgs args, Action<string> statusCallback);
 }

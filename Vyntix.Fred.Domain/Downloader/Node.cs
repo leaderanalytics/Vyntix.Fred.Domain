@@ -1,4 +1,6 @@
-﻿namespace LeaderAnalytics.Vyntix.Fred.Domain.Downloader;
+﻿
+
+namespace LeaderAnalytics.Vyntix.Fred.Domain.Downloader;
 
 // This class has no database table. It represents a category child
 // either a sub-category or a series.
