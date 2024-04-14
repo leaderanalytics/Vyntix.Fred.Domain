@@ -2,12 +2,12 @@
 
 public interface ICategoriesService
 {
-    Task<RowOpResult> DownloadCategory(string categoryID);
-    Task<RowOpResult> DownloadCategoriesForSeries(string symbol);
-    Task<RowOpResult> DownloadCategoryChildren(string categoryID);
-    Task<RowOpResult> DownloadRelatedCategories(string parentID);
-    Task<RowOpResult> DownloadCategorySeries(string categoryID, bool includeDiscontinued = false);
-    Task<RowOpResult> DownloadCategoryTags(string categoryID);
+    Task<RowOpResult> DownloadCategory(string categoryID, CancellationToken? cancellationToken);
+    Task<RowOpResult> DownloadCategoriesForSeries(string symbol, CancellationToken? cancellationToken);
+    Task<RowOpResult> DownloadCategoryChildren(string categoryID, CancellationToken? cancellationToken);
+    Task<RowOpResult> DownloadRelatedCategories(string parentID, CancellationToken? cancellationToken);
+    Task<RowOpResult> DownloadCategorySeries(string categoryID, CancellationToken? cancellationToken, bool includeDiscontinued = false);
+    Task<RowOpResult> DownloadCategoryTags(string categoryID, CancellationToken? cancellationToken);
     Task<RowOpResult> SaveCategory(FredCategory category, bool saveChanges = true);
     Task<RowOpResult> SaveCategoryTag(FredCategoryTag categoryTag, bool saveChanges = true);
     Task<RowOpResult> SaveRelatedCategory(FredRelatedCategory category, bool saveChanges = true);
