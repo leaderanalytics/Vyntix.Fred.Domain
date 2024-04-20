@@ -1,6 +1,6 @@
 ﻿namespace LeaderAnalytics.Vyntix.Fred.Domain;
 
-internal class Constants
+public class Constants
 {
     public const string DateFormat = "yyyy-MM-dd";
     public const string DateTimeFormat = "yyyy-MM-dd hh:mm:ss tt";
