@@ -13,5 +13,5 @@ public interface ICategoriesService
     Task<RowOpResult> SaveRelatedCategory(FredRelatedCategory category, bool saveChanges = true);
     Task<List<FredCategory>> GetLocalCategoriesForSeries(string symbol);
     Task<List<FredCategory>> GetLocalChildCategories(string? parentID, bool sortAscending = true, string searchExpression = null, int skip = 0, int take = int.MaxValue);
-    Task<List<Node>> GetCategoryNodes(string? categoryID, bool sortAscending = true, string searchExpression = null, int skip = 0, int take = int.MaxValue);
+    Task<List<Node>> GetCategoryNodes(string? categoryID, bool sortAscending = true, string searchExpression = null, string symbolSearchExpression = null, int skip = 0, int take = int.MaxValue);
 }
