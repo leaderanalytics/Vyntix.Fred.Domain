@@ -120,4 +120,5 @@ public interface IFredClient
     Task<List<FredSource>> GetSources(DateTime RTStart, DateTime RTEnd);
     Task<APIResult<List<FredVintage>>> GetVintages(string symbol, DateTime? RTStart = null, DateTime? RTEnd = null);
     Task<APIResult<List<DateTime>>> GetVintageDates(string symbol, DateTime? RTStart = null, DateTime? RTEnd = null);
+    Task<bool> IsAPI_KeyValid();
 }
