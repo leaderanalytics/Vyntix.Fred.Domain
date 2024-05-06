@@ -7,4 +7,5 @@ public interface IAPI_Manifest
     IReleasesService ReleasesService { get; }
     ISeriesService SeriesService { get; }
     ICategoriesService CategoriesService { get; }
+    IAuthenticationService AuthenticationService { get; }
 }
