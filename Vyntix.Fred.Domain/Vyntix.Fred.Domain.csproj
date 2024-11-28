@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFrameworks>net9;net8;net7;net6</TargetFrameworks>
 	<ImplicitUsings>enable</ImplicitUsings>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <IncludeSymbols>true</IncludeSymbols>
@@ -32,11 +32,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="LeaderAnalytics.Vyntix.Elements" Version="1.0.8" />
-    <PackageReference Include="LeaderAnalytics.Vyntix.Fred.Model" Version="2.1.0" />
+    <PackageReference Include="LeaderAnalytics.Vyntix.Elements" Version="3.0.0" />
+    <PackageReference Include="LeaderAnalytics.Vyntix.Fred.Model" Version="3.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Update="Nerdbank.GitVersioning" Version="3.6.133" />
+    <PackageReference Update="Nerdbank.GitVersioning" Version="3.6.146" />
   </ItemGroup>
 </Project>
